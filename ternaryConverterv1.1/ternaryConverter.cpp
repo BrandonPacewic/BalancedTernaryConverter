@@ -20,6 +20,6 @@ int main() {
             }
     }
 
-    for (int i = ternary.size() - 1; i >= 0; i++) 
+    for (int i = ternary.size() - 1; i >= 0; i--)
         cout << ternary[i];
 }
