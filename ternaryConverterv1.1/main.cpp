@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-#include "ternaryConverter.cpp"
-#include "balancedConverter.cpp"
+#include "ternaryConverter.hpp"
+#include "balancedConverter.hpp"
 
 
 int main() {
