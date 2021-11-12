@@ -6,12 +6,13 @@ using namespace std;
 
 
 int main() {
-    int input;
+    int64_t input;
     cin >> input;
     
-    vector<int> ternary = ternaryCon(input);
-    vector<char> ans = balancedCon(ternary); 
+    //vector<int> ans = ternaryCon(input); 
 
-    for (auto i: ans)
-        cout << i;
+    //for (auto i: ans)
+        //cout << i;
+
+    balancedConverter(input);
 }
