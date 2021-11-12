@@ -1,18 +1,20 @@
 template <typename T> T balancedConverter(T conVal) {
+    int64_t inVal = conVal;
     vector<int64_t> vals;
     for (int i = 0; pow(3, i) <= conVal; i++) {
         vals.push_back(int64_t(pow(3, i)));
         cout << "added " << pow(3, i) << '\n';
     }
 
-    sort(vals.begin(), vals.end());
+    sort(vals.begin(), vals.end(), greater<int64_t>());
 
     vector<int> balTer(vals.size(), 0);
     for (int i = 0; i < vals.size(); i++) {
         for (int j = 0; j < 2; j++) {
-            if (conVal >= vals[i]) {
+            if (inVal >= vals[i]) {
                 balTer[i]++;
-                conVal -= vals[i]; 
+                inVal -= vals[i]; 
+                cout << "removed " << vals[i] << '\n';
             }
         }
 
@@ -24,7 +26,7 @@ template <typename T> T balancedConverter(T conVal) {
         // }
     }
 
-    // for (auto i: balTer)
-    //     cout << i << ' ';
+    for (auto i: balTer)
+        cout << i << ' ';
     return conVal;
 }
