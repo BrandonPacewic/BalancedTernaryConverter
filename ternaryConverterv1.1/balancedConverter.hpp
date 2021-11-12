@@ -1,4 +1,4 @@
-template <typename T> T balancedConverter(T conVal) {
+template<typename T> T balancedConverter(T conVal) {
     int64_t inVal = int64_t(conVal);
     vector<int64_t> vals;
     for (int i = 0; pow(3, i) <= conVal; i++) 
