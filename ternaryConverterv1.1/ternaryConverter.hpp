@@ -1,4 +1,4 @@
-vector<int> ternaryCon(int input) {
+void ternaryCon(int input) {
     int n = 0;
     if (input < 0)
         n++;
@@ -15,5 +15,7 @@ vector<int> ternaryCon(int input) {
                 ternary[i] += 1;
             }
     }
-    return ternary;
+    
+    for (auto i: ternary)
+        cout << i << ' ';
 }
