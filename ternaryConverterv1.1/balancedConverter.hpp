@@ -3,6 +3,7 @@ template<typename T> T balancedConverter(T conVal) {
     vector<int64_t> vals;
     for (int i = 0; pow(3, i) <= conVal; i++) 
         vals.push_back(int64_t(pow(3, i)));
+        
     vals.push_back(int64_t(pow(3, vals.size())));
     sort(vals.begin(), vals.end(), greater<int64_t>());
 
