@@ -1,5 +1,12 @@
 template<typename T> T balancedConverter(T conVal) {
     int64_t inVal = int64_t(conVal);
+
+    bool neg = false;
+    if (inVal < 0) {
+        neg = true;
+        inVal *= -1;
+    }
+
     vector<int64_t> vals;
     for (int i = 0; pow(3, i) <= conVal; i++) 
         vals.push_back(int64_t(pow(3, i)));
@@ -26,6 +33,14 @@ template<typename T> T balancedConverter(T conVal) {
             }
         }
     }
+
+    if (neg)
+        for (auto &i: balTer) 
+            if (i == 1) {
+                i = -1;
+            } else if (i == -1)
+                i = 1;
+        
 
     for (auto i: balTer)
         cout << i << ' ';
