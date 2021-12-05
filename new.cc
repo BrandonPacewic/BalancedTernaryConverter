@@ -10,7 +10,7 @@ template<typename T> T abs(T num) { return num < 0 ? num * -1 : num; }
 class ternaryConverter {
 private:
 
-    static string balancedTernary(long long n) {
+    static string balancedTernary(int64_t n) {
         string output = "";
         bool invert = 0;
 
@@ -18,7 +18,7 @@ private:
             invert = 1;
 
         while (abs(n) > 0) {
-            int rem = abs(n) <mod> 3ll;
+            int rem = abs(n) <mod> int64_t(3);
             n = abs(n) / 3;
 
             if (rem == 2) {
@@ -41,5 +41,4 @@ int main() {
     cin >> N;
  
     cout << ternaryConverter::balancedConvert(N);
- 
 }
