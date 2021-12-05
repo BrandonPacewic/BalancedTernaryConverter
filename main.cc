@@ -1,9 +1,10 @@
-#include "ternaryConverterv1.1/balancedConverter.hpp"
+#include "ternaryConverterv1.1/balancedTernaryConverter.hpp"
+#include <iostream>
 using namespace std;
 
 int main() {
     BALANCED_TERNARY_CONVERTER balancedTernaryConverter;
-    int64_t input;
+    long long input;
     cin >> input;
 
     balancedTernaryConverter.convert(input);
