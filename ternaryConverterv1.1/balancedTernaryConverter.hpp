@@ -14,7 +14,7 @@ private:
     std::vector<int64_t> initalizeValues(const T_Num ValueToBeConverted) {
         std::vector<int64_t> VALUES;
 
-        for (int i = 0; pow(3, i) <= ValueToBeConverted; i++) {
+        for (int i = 0; pow(3, i) <= abs(ValueToBeConverted); i++) {
             VALUES.push_back(int64_t(pow(3, i)));
         }
 
