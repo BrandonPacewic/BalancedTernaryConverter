@@ -30,7 +30,7 @@ private:
       invert = 1;
 
     while (abs(n) > 0) {
-      int rem = abs(n)<mod> int64_t(3);
+      int rem = abs(n) <mod> int64_t(3);
       n = abs(n) / 3;
 
       if (rem == 2) {
