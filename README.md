@@ -1,6 +1,6 @@
 # Balanced Ternary Converter
 
-## Version 1.1
+## Version 1.2
 
 ----
 
@@ -26,7 +26,7 @@ The number 5 in ternary is represented as 012 as it contains one 3 and two 1s
 
 #### Balanced Ternary
 
-Balenced Ternary takes this one step farther 
+Balanced Ternary takes this one step farther 
 Insted of showing numbers as 0s, 1s, and 2s they are shown as 0s, 1s, and -1s
 
 The number 5 in balanced ternary is represented as 1 -1 -1 as it contains one 9 one -3 and one -1
