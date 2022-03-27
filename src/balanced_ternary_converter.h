@@ -14,7 +14,7 @@
 
 namespace ternary {
 
-std::string balanced_convert(const int& value);
+std::string balanced_convert(int value);
 
 } // namespace ternary   
 
