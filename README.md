@@ -32,3 +32,11 @@ Insted of showing numbers as 0s, 1s, and 2s they are shown as 0s, 1s, and -1s
 The number 5 in balanced ternary is represented as 1 -1 -1 as it contains one 9 one -3 and one -1
 
 3^2 -3^1 -3^0
+
+----
+
+The method applied to accomplish this shown in this code is extreamly inefficient.
+Please keep in mind that this code could eaisly be shortaned and improved upon
+simply by using division and the modulous operator. However, such simpler 
+methods can be found online and the use of loops and variable size containers
+such as 'Vector' is extreamly useful for educational purposes. Enjoy :)
