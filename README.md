@@ -1,7 +1,7 @@
 # Balanced Ternary Converter
 
 Balanced Ternary is a numeral system similar to Binary that uses a signed-digit representation of numbers.
-Possible symbols are -1, 0, and 1.
+Possible symbols are -1, 0, and 1. Represented in this solution as `-`, `0`, and `+`.
 
 ## Whats inside?
 
