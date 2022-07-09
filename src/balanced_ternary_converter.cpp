@@ -1,13 +1,7 @@
-/*
- * Copyright (c) 2022 Brandon Pacewic
- *
- * Developed and tested by Brandon Pacewic
- * 
- * balanced_ternary_converter.cc
- */
+// Copyright (c) Brandon Pacewic
+// SPDX-License-Identifier: MIT
 
-#ifndef _BALANCED_TERNARY_CONVERTER_C
-#define _BALANCED_TERNARY_CONVERTER_C 1
+#include "balanced_ternary_converter.h"
 
 #include <algorithm>
 #include <cmath>
@@ -15,10 +9,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "balanced_ternary_converter.h"
-
 namespace ternary {
-
 namespace {
 
 std::vector<int> initalize_values(const int& value) {
@@ -36,8 +27,8 @@ std::vector<int> initalize_values(const int& value) {
 std::vector<int> make_ternary(const std::vector<int>& values, int value) {
     std::vector<int> ternary(values.size(), 0);
 
-    for (int i = 0; i < values.size(); ++i) {
-        for (int step = 0; step < 2; ++step) {
+    for (std::size_t i = 0; i < values.size(); ++i) {
+        for (uint8_t step = 0; step < 2; ++step) {
             if (value >= values[i]) {
                 ++ternary[i];
                 value -= values[i];
@@ -52,11 +43,10 @@ void convert_to_balanced(std::vector<int>& ternary) {
     for (int i = ternary.size() - 1; i >= 0; --i) {
         if (ternary[i] == 3) {
             ternary[i] = 0;
-            ++ternary[i-1];
-        }
-        else if (ternary[i] == 2) {
+            ++ternary[i - 1];
+        } else if (ternary[i] == 2) {
             ternary[i] = -1;
-            ++ternary[i-1];
+            ++ternary[i - 1];
         }
     }
 }
@@ -77,13 +67,7 @@ std::string convert_to_symbols(const std::vector<int>& balanced_ternary,
     return symbols;
 }
 
-// Const value - It is always assumed that this is the number being converted
-// to teranry, this is because the length of the ternary symbol string is
-// required to be of length 6. 364 is the largest possible number that can be
-// represented in ternary with only 6 digits. You will notice that this number
-// is one less that the ceil used for the static_mod_type
-constexpr int const_value = 364;
-std::unordered_map<int, std::vector<int>> value_to_values_map;
+std::unordered_map<int, std::vector<int>> value_to_values;
 
 } // namespace
 
@@ -95,12 +79,12 @@ std::string balanced_convert(int value) {
         value = abs(value);
     }
 
-    if (!value_to_values_map.count(const_value)) {
-        value_to_values_map[const_value] = initalize_values(const_value);
+    if (!value_to_values.count(value)) {
+        value_to_values[value] = initalize_values(value);
     }
 
     auto ternary = make_ternary(
-        value_to_values_map.find(const_value)->second, value);
+        value_to_values.find(value)->second, value);
 
     convert_to_balanced(ternary);
     auto symbols = convert_to_symbols(ternary, invert_signs);
@@ -109,5 +93,3 @@ std::string balanced_convert(int value) {
 }
 
 } // namespace ternary
-
-#endif // _BALANCED_TERNARY_CONVERTER_C

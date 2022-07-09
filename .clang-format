@@ -1,4 +1,6 @@
 # Copyright (c) Brandon Pacewic
 # SPDX-License-Identifier: MIT
 
-/build/
+Language: Cpp
+BasedOnStyle: Google
+IndentWidth: 4

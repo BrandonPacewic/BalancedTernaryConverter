@@ -1,14 +1,8 @@
-/*
- * Copyright (c) 2022 Brandon Pacewic
- *
- * Developed and tested by Brandon Pacewic
- * 
- * balanced_ternary_converter.h
- */
+// Copyright (c) Brandon Pacewic
+// SPDX-License-Identifier: MIT
 
-#pragma once
-#ifndef _BALANCED_TERNARY_CONVERTER_H
-#define _BALANCED_TERNARY_CONVERTER_H 1
+#ifndef BALANCED_TERNARY_CONVERTER_H_
+#define BALANCED_TERNARY_CONVERTER_H_
 
 #include <string>
 
@@ -18,4 +12,4 @@ std::string balanced_convert(int value);
 
 } // namespace ternary   
 
-#endif // _BALANCED_TERNARY_CONVERTER_H
+#endif // BALANCED_TERNARY_CONVERTER_H_
