@@ -10,6 +10,6 @@ namespace ternary {
 
 std::string balanced_convert(int value);
 
-} // namespace ternary   
+}  // namespace ternary
 
-#endif // BALANCED_TERNARY_CONVERTER_H_
+#endif  // BALANCED_TERNARY_CONVERTER_H_

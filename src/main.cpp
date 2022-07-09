@@ -1,10 +1,10 @@
 // Copyright (c) Brandon Pacewic
 // SPDX-License-Identifier: MIT
 
-#include "balanced_ternary_converter.h"
-
 #include <iostream>
 #include <string>
+
+#include "balanced_ternary_converter.h"
 
 int main() {
     std::cout << "Enter a number: ";
