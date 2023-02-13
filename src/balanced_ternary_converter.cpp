@@ -43,9 +43,17 @@ void convert_to_balanced(std::vector<int>& ternary) {
     for (int i = ternary.size() - 1; i >= 0; --i) {
         if (ternary[i] == 3) {
             ternary[i] = 0;
+        if (i - 1 < 0) {
+            ternary.insert(ternary.begin(), 1, 0);
+            ++ternary[i];
+        }
             ++ternary[i - 1];
         } else if (ternary[i] == 2) {
             ternary[i] = -1;
+            if (i - 1 < 0) {
+                ternary.insert(ternary.begin(), 1, 0);
+                ++ternary[i];
+            }
             ++ternary[i - 1];
         }
     }
