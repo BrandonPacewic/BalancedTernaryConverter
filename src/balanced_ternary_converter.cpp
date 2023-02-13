@@ -12,7 +12,7 @@
 namespace ternary {
 namespace {
 
-std::vector<int> initalize_values(const int& value) {
+std::vector<int> initalize_values(const int &value) {
     std::vector<int> values;
 
     for (int i = 0; pow(3, i) <= value; ++i) {
@@ -24,49 +24,43 @@ std::vector<int> initalize_values(const int& value) {
     return values;
 }
 
-std::vector<int> make_ternary(const std::vector<int>& values, int value) {
+std::vector<int> make_ternary(const std::vector<int> &values, int value) {
     std::vector<int> ternary(values.size(), 0);
 
     for (std::size_t i = 0; i < values.size(); ++i) {
-        for (uint8_t step = 0; step < 2; ++step) {
-            if (value >= values[i]) {
-                ++ternary[i];
-                value -= values[i];
-            }
-        }
+        ternary[i] += value / values[i];
+        value %= values[i];
     }
+    std::reverse(ternary.begin(), ternary.end());
 
     return ternary;
 }
 
-void convert_to_balanced(std::vector<int>& ternary) {
-    for (int i = ternary.size() - 1; i >= 0; --i) {
+void convert_to_balanced(std::vector<int> &ternary) {
+    for (int i = 0; i < ternary.size(); ++i) {
+        if (ternary[i] > 1 && i + 1 >= ternary.size()) ternary.push_back(0);
         if (ternary[i] == 3) {
             ternary[i] = 0;
-        if (i - 1 < 0) {
-            ternary.insert(ternary.begin(), 1, 0);
-            ++ternary[i];
-        }
-            ++ternary[i - 1];
+            ++ternary[i + 1];
         } else if (ternary[i] == 2) {
             ternary[i] = -1;
-            if (i - 1 < 0) {
-                ternary.insert(ternary.begin(), 1, 0);
-                ++ternary[i];
-            }
-            ++ternary[i - 1];
+            ++ternary[i + 1];
         }
     }
 }
 
-std::string convert_to_symbols(const std::vector<int>& balanced_ternary,
-                               const bool& invert_signs) {
+std::string convert_to_symbols(const std::vector<int> &balanced_ternary,
+                               const bool &invert_signs) {
     std::string symbols(balanced_ternary.size(), '0');
 
-    for (int i = 0; i < int(balanced_ternary.size()); ++i) {
-        if (balanced_ternary[i] == 1) {
+    auto redirected_balanced_ternary = balanced_ternary;
+    std::reverse(redirected_balanced_ternary.begin(),
+                 redirected_balanced_ternary.end());
+
+    for (int i = 0; i < int(redirected_balanced_ternary.size()); ++i) {
+        if (redirected_balanced_ternary[i] == 1) {
             symbols[i] = (invert_signs) ? '-' : '+';
-        } else if (balanced_ternary[i] == -1) {
+        } else if (redirected_balanced_ternary[i] == -1) {
             symbols[i] = (invert_signs) ? '+' : '-';
         }
     }
