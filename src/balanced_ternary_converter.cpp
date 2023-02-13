@@ -12,7 +12,7 @@
 namespace ternary {
 namespace {
 
-std::vector<int> initalize_values(const int &value) {
+std::vector<int> initalize_values(const int& value) {
     std::vector<int> values;
 
     for (int i = 0; pow(3, i) <= value; ++i) {
@@ -24,7 +24,7 @@ std::vector<int> initalize_values(const int &value) {
     return values;
 }
 
-std::vector<int> make_ternary(const std::vector<int> &values, int value) {
+std::vector<int> make_ternary(const std::vector<int>& values, int value) {
     std::vector<int> ternary(values.size(), 0);
 
     for (std::size_t i = 0; i < values.size(); ++i) {
@@ -36,7 +36,7 @@ std::vector<int> make_ternary(const std::vector<int> &values, int value) {
     return ternary;
 }
 
-void convert_to_balanced(std::vector<int> &ternary) {
+void convert_to_balanced(std::vector<int>& ternary) {
     for (int i = 0; i < ternary.size(); ++i) {
         if (ternary[i] > 1 && i + 1 >= ternary.size()) ternary.push_back(0);
         if (ternary[i] == 3) {
@@ -49,8 +49,8 @@ void convert_to_balanced(std::vector<int> &ternary) {
     }
 }
 
-std::string convert_to_symbols(const std::vector<int> &balanced_ternary,
-                               const bool &invert_signs) {
+std::string convert_to_symbols(const std::vector<int>& balanced_ternary,
+                               const bool& invert_signs) {
     std::string symbols(balanced_ternary.size(), '0');
 
     auto redirected_balanced_ternary = balanced_ternary;
