@@ -38,7 +38,9 @@ std::vector<int> make_ternary(const std::vector<int>& values, int value) {
 
 void convert_to_balanced(std::vector<int>& ternary) {
     for (int i = 0; i < ternary.size(); ++i) {
-        if (ternary[i] > 1 && i + 1 >= ternary.size()) ternary.push_back(0);
+        if (ternary[i] > 1 && i + 1 >= ternary.size()) {
+            ternary.push_back(0);
+        }
         if (ternary[i] == 3) {
             ternary[i] = 0;
             ++ternary[i + 1];
